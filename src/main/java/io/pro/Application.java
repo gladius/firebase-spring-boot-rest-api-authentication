@@ -19,10 +19,12 @@ public class Application {
 		SpringApplication.run(Application.class, args);
 		try {
 			FirebaseOptions options = new FirebaseOptions.Builder()
-			  .setCredentials(GoogleCredentials.fromStream(new ClassPathResource("/firebase-authentication.json").getInputStream()))
-			  .setDatabaseUrl(FB_BASE_URL)
-			  .build();
-			FirebaseApp.initializeApp(options);
+					.setCredentials(GoogleCredentials
+							.fromStream(new ClassPathResource("/firebase-authentication.json").getInputStream()))
+					.setDatabaseUrl(Constants.FBDB_BASE_URL).build();
+			if (FirebaseApp.getApps().isEmpty()) {
+				FirebaseApp.initializeApp(options);
+			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
