@@ -2,3 +2,4 @@
 .project
 .classpath
 /.settings
+/src/main/resources/firebase-server-config.json
