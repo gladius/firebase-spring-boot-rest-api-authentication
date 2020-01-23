@@ -1,0 +1,24 @@
+security:
+   alloweddomains: http://localhost:3000
+   allowedmethods:
+   - GET
+   - POST
+   - PUT
+   - PATCH
+   - DELETE
+   - OPTIONS
+   allowedheaders:
+   - Authorization
+   - Origin
+   - Content-Type
+   - Accept
+   - Accept-Encoding
+   - Accept-Language
+   - Access-Control-Allow-Origin
+   - Access-Control-Allow-Headers
+   - Access-Control-Request-Method
+   - X-Requested-With
+   - Cache-Control
+   allowedpublicapis:
+   - /favicon.ico
+   - /public/data
