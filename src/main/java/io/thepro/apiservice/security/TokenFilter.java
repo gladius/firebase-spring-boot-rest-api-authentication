@@ -41,15 +41,15 @@ public class TokenFilter extends OncePerRequestFilter {
 				log.error("Firebase Exception:: ", e.getLocalizedMessage());
 			}
 			if (decodedToken != null) {
-				User userPrincipal = new User();
-				userPrincipal.setUid(decodedToken.getUid());
-				userPrincipal.setName(decodedToken.getName());
-				userPrincipal.setEmail(decodedToken.getEmail());
-				userPrincipal.setPicture(decodedToken.getPicture());
-				userPrincipal.setIssuer(decodedToken.getIssuer());
-				userPrincipal.setEmailVerified(decodedToken.isEmailVerified());
+				User user = new User();
+				user.setUid(decodedToken.getUid());
+				user.setName(decodedToken.getName());
+				user.setEmail(decodedToken.getEmail());
+				user.setPicture(decodedToken.getPicture());
+				user.setIssuer(decodedToken.getIssuer());
+				user.setEmailVerified(decodedToken.isEmailVerified());
 				UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(
-						userPrincipal, decodedToken, null);
+						user, decodedToken, null);
 				authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
 				SecurityContextHolder.getContext().setAuthentication(authentication);
 			}

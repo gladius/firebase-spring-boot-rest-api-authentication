@@ -1,3 +1,6 @@
+firebase:
+  databaseUrl: ${FIREBASE_DATABASE}
+
 security:
    alloweddomains: http://localhost:3000
    allowedmethods:
