@@ -9,6 +9,8 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.core.io.ClassPathResource;
 
 import com.google.auth.oauth2.GoogleCredentials;
+import com.google.cloud.firestore.Firestore;
+import com.google.cloud.firestore.FirestoreOptions;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
 
@@ -17,7 +19,7 @@ public class FirebaseConfig {
 
 	@Value("${firebase.databaseUrl}")
 	String firebaseDatabaseUrl;
-	
+
 	@Primary
 	@Bean
 	public void firebaseInit() throws IOException {
@@ -28,6 +30,13 @@ public class FirebaseConfig {
 		if (FirebaseApp.getApps().isEmpty()) {
 			FirebaseApp.initializeApp(options);
 		}
+	}
+
+	@Bean
+	public Firestore getDatabase() throws IOException {
+		FirestoreOptions firestoreOptions = FirestoreOptions.newBuilder()
+				.setCredentials(GoogleCredentials.getApplicationDefault()).build();
+		return firestoreOptions.getService();
 	}
 
 }
