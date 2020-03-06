@@ -4,6 +4,12 @@ Firebase is a backendless platform to run applications without dedicated backend
 
 This **Spring Boot Starter** is perfect for such situations when you want to extend firebase's authentication menchanism with **Spring Security** to seamlessly create and use protected rest API's.
 
+### Configuration
+
+Be sure to add the following environment variable globally or project specific run configuration environment variable
+
+ * GOOGLE_APPLICATION_CREDENTIALS=path_to_firebase_server_config.json
+
 
 [![Open with Gitpod](https://thepro.io/button.svg)](https://thepro.io/post/firebase-authentication-for-spring-boot-rest-api)
 

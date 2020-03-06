@@ -35,10 +35,12 @@ public class TokenFilter extends OncePerRequestFilter {
 		if (!restSecProps.getAllowedpublicapis().contains(path)) {
 			String idToken = securityUtils.getTokenFromRequest(request);
 			FirebaseToken decodedToken = null;
-			try {
-				decodedToken = FirebaseAuth.getInstance().verifyIdToken(idToken);
-			} catch (FirebaseAuthException e) {
-				log.error("Firebase Exception:: ", e.getLocalizedMessage());
+			if (idToken != null) {
+				try {
+					decodedToken = FirebaseAuth.getInstance().verifyIdToken(idToken);
+				} catch (FirebaseAuthException e) {
+					log.error("Firebase Exception:: ", e.getLocalizedMessage());
+				}
 			}
 			if (decodedToken != null) {
 				User user = new User();
@@ -48,8 +50,8 @@ public class TokenFilter extends OncePerRequestFilter {
 				user.setPicture(decodedToken.getPicture());
 				user.setIssuer(decodedToken.getIssuer());
 				user.setEmailVerified(decodedToken.isEmailVerified());
-				UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(
-						user, decodedToken, null);
+				UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(user,
+						decodedToken, null);
 				authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
 				SecurityContextHolder.getContext().setAuthentication(authentication);
 			}
