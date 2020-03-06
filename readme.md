@@ -13,8 +13,13 @@ Be sure to add the following environment variable globally or project specific r
 
 [![Open with Gitpod](https://thepro.io/button.svg)](https://thepro.io/post/firebase-authentication-for-spring-boot-rest-api)
 
+## Protected API
 
-![Image of Protected API ](../blob/master/images/protected_api.png?raw=true)
+![Image of Protected API ](https://raw.githubusercontent.com/gladius-thayalarajan/firebase-spring-boot-rest-api-authentication/master/images/protected_api.png)
+
+## Public API
+
+![Image of Protected API ](https://raw.githubusercontent.com/gladius-thayalarajan/firebase-spring-boot-rest-api-authentication/master/images/public_api.png)
 
 
 
