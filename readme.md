@@ -1,4 +1,4 @@
-## Firebase Authentication for Spring boot 
+# Firebase Authentication for Spring boot 
 [![Open with ThePro](https://thepro.io/button.svg)](https://thepro.io/post/firebase-authentication-for-spring-boot-rest-api)
 
 Firebase is a backendless platform to run applications without dedicated backend. But, sometimes you may need to communicate with API of an exisiting backend or you may want a dedicated backend to perform operations that cannot be done using firebase infrastructure .
@@ -13,13 +13,11 @@ Be sure to add the following environment variable globally or project specific r
 
 ### Protected API
 
-![Image of Protected API ](https://raw.githubusercontent.com/gladius-thayalarajan/firebase-spring-boot-rest-api-authentication/master/images/protected_api.png)
+![Image of Protected API ](https://raw.githubusercontent.com/gladius-thayalarajan/firebase-spring-boot-rest-api-authentication/master/screenshots/protected_api.png)
 
 ### Public API
 
-![Image of Protected API ](https://raw.githubusercontent.com/gladius-thayalarajan/firebase-spring-boot-rest-api-authentication/master/images/public_api.png)
-
-
+![Image of Protected API ](https://raw.githubusercontent.com/gladius-thayalarajan/firebase-spring-boot-rest-api-authentication/master/screenshots/public_api.png)
 
 
 ## Author
@@ -33,3 +31,8 @@ Be sure to add the following environment variable globally or project specific r
 ## Show your support
 
 Give a ⭐️ if this project helped you!
+
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
