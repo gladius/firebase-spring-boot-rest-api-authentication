@@ -12,6 +12,10 @@ Be sure to add the following environment variable globally or project specific r
 
  * GOOGLE_APPLICATION_CREDENTIALS=path_to_firebase_server_config.json
 
+### Kubernetes Deployment
+
+Checkout the post at https://thepro.io/post/firebase-service-account-configuration-for-spring-boot-on-kubernetes
+
 ### Protected API
 
 ![Image of Protected API ](https://raw.githubusercontent.com/gladius-thayalarajan/firebase-spring-boot-rest-api-authentication/master/screenshots/protected_api.png)

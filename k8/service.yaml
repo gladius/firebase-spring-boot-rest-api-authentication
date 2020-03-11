@@ -1,0 +1,16 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: firebase-middleware-service
+  name: firebase-middleware-service
+spec:
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: firebase-middleware
+  sessionAffinity: None
+  type: ClusterIP
