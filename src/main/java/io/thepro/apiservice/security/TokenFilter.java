@@ -35,7 +35,7 @@ public class TokenFilter extends OncePerRequestFilter {
 		if (!restSecProps.getAllowedpublicapis().contains(path)) {
 			String idToken = securityUtils.getTokenFromRequest(request);
 			FirebaseToken decodedToken = null;
-			if (idToken != null) {
+			if (idToken != null && !idToken.equalsIgnoreCase("undefined")) {
 				try {
 					decodedToken = FirebaseAuth.getInstance().verifyIdToken(idToken);
 				} catch (FirebaseAuthException e) {
