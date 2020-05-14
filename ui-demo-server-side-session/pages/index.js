@@ -1,14 +1,27 @@
 import Link from "next/link";
 import axios from "axios";
+import cookies from "next-cookies";
 import Layout from "../components/layout";
-import Loader from "../components/loader";
-import { useUser } from "../context/userContext";
 import firebase from "../firebase/clientApp";
 
-export default () => {
-  const MIDDLEWARE_URL = process.env.MIDDLEWARE_URL;
-  const { user, loadingUser } = useUser();
+export async function getServerSideProps(ctx) {
+  const allCookies = cookies(ctx);
+  let isAuthenticated = false;
+  if (
+    allCookies["authenticated"] != null &&
+    typeof allCookies["authenticated"] != "undefined"
+  ) {
+    isAuthenticated = true;
+  }
+  return {
+    props: {
+      isAuthenticated,
+    },
+  };
+}
 
+export default ({ isAuthenticated }) => {
+  const MIDDLEWARE_URL = process.env.MIDDLEWARE_URL;
   const login = () => {
     firebase.auth().setPersistence(firebase.auth.Auth.Persistence.NONE);
     firebase
@@ -36,6 +49,7 @@ export default () => {
       withCredentials: true,
     })
       .then((res) => {
+        location.reload(true);
         console.log("response from backend:: ", res);
       })
       .catch();
@@ -45,9 +59,10 @@ export default () => {
     axios({
       url: MIDDLEWARE_URL + "/session/logout",
       method: "POST",
+      withCredentials: true,
     })
       .then((response) => {
-        console.log("Response from middleware :: ", response);
+        location.reload(true);
       })
       .catch((error) => {
         console.log("error from middleware :: ", error);
@@ -56,36 +71,30 @@ export default () => {
 
   return (
     <Layout>
-      {loadingUser ? (
-        <Loader />
+      {isAuthenticated ? (
+        <div>
+          <button
+            type="button"
+            className="btn btn-danger float-right"
+            onClick={() => logout()}
+          >
+            Logout
+          </button>
+          <h3>
+            <Link href="/demo">
+              <a>Go to firebase authorized rest call demo</a>
+            </Link>
+          </h3>
+        </div>
       ) : (
         <div>
-          {user != null ? (
-            <div>
-              <button
-                type="button"
-                className="btn btn-danger float-right"
-                onClick={() => logout()}
-              >
-                Logout
-              </button>
-              <h3>
-                <Link href="/demo">
-                  <a>Go to firebase authorized rest call demo</a>
-                </Link>
-              </h3>
-            </div>
-          ) : (
-            <div>
-              <button
-                type="button"
-                className="btn btn-primary"
-                onClick={() => login()}
-              >
-                Login
-              </button>
-            </div>
-          )}
+          <button
+            type="button"
+            className="btn btn-primary"
+            onClick={() => login()}
+          >
+            Login
+          </button>
         </div>
       )}
     </Layout>

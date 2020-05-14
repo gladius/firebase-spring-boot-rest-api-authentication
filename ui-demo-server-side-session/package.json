@@ -10,6 +10,7 @@
     "axios": "^0.19.2",
     "firebase": "7.11.0",
     "next": "latest",
+    "next-cookies": "^2.0.3",
     "react": "^16.13.0",
     "react-dom": "^16.13.0"
   },

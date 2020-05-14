@@ -35,9 +35,13 @@ Be sure to add the following environment variable globally or project specific r
 
 ### UI Demo
 
-#### Client Side Sesion Demo
+#### Client Side Session Demo
 
-Nextjs application demonstrating client side firebase session
+Nextjs application demonstrating client side firebase session.
+
+#### Server Side Session Demo
+
+Nextjs application demonstrating server side firebase session.
 
 ### Kubernetes Deployment
 
@@ -46,6 +50,8 @@ Checkout the post at https://thepro.io/post/firebase-service-account-configurati
 ### Screenshots
 
 ![Image of UI Demo Protected API ](https://raw.githubusercontent.com/gladius/firebase-spring-boot-rest-api-authentication/master/screenshots/ui_demo_protected_api.png)
+
+![Image of UI Demo Protected API ERROR](https://raw.githubusercontent.com/gladius/firebase-spring-boot-rest-api-authentication/master/screenshots/ui_demo_protected_api-error.png)
 
 ## Author
 

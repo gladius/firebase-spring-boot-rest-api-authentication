@@ -58,19 +58,15 @@ public class SecurityFilter extends OncePerRequestFilter {
 		String token = securityService.getBearerToken(request);
 		try {
 			if (sessionCookie != null) {
-				System.out.println("~~~~~~~~~~~~~~~~~~~ inside strictServerSessionEnabled  :: ");
 				session = sessionCookie.getValue();
 				decodedToken = FirebaseAuth.getInstance().verifySessionCookie(session,
 						securityProps.getFirebaseProps().isEnableCheckSessionRevoked());
 				type = CredentialType.SESSION;
-			} else if(!strictServerSessionEnabled){
-				System.out.println("~~~~~~~~~~~~~~~~~~~ nope not inside strictServerSessionEnabled  :: ");
+			} else if (!strictServerSessionEnabled) {
 				if (token != null && !token.equalsIgnoreCase("undefined")) {
 					decodedToken = FirebaseAuth.getInstance().verifyIdToken(token);
 					type = CredentialType.ID_TOKEN;
 				}
-			}else {
-				System.out.println("~~~~~~~~~~~~~~~~~~~ exited out of all :: ");
 			}
 		} catch (FirebaseAuthException e) {
 			e.printStackTrace();
