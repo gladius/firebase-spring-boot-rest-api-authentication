@@ -1,36 +1,30 @@
 package io.thepro.apiservice.security;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.stereotype.Component;
-import org.springframework.util.StringUtils;
-import org.springframework.web.util.WebUtils;
+import org.springframework.stereotype.Service;
 
-@Component
-public class SecurityUtils {
+import io.thepro.apiservice.security.models.Credentials;
+import io.thepro.apiservice.security.models.SecurityProperties;
+import io.thepro.apiservice.security.models.User;
+import io.thepro.apiservice.utils.CookieUtils;
+
+@Service
+public class SecurityService {
 
 	@Autowired
-	HttpServletRequest request;
+	HttpServletRequest httpServletRequest;
 
-	public String getTokenFromRequest(HttpServletRequest request) {
-		String token = null;
-		Cookie cookieToken = WebUtils.getCookie(request, "token");
-		if (cookieToken != null) {
-			token = cookieToken.getValue();
-		} else {
-			String bearerToken = request.getHeader("Authorization");
-			if (StringUtils.hasText(bearerToken) && bearerToken.startsWith("Bearer ")) {
-				token = bearerToken.substring(7, bearerToken.length());
-			}
-		}
-		return token;
-	}
+	@Autowired
+	CookieUtils cookieUtils;
 
-	public User getPrincipal() {
+	@Autowired
+	SecurityProperties securityProps;
+
+	public User getUser() {
 		User userPrincipal = null;
 		SecurityContext securityContext = SecurityContextHolder.getContext();
 		Object principal = securityContext.getAuthentication().getPrincipal();
@@ -38,6 +32,15 @@ public class SecurityUtils {
 			userPrincipal = ((User) principal);
 		}
 		return userPrincipal;
+	}
+
+	public Credentials getCredentials() {
+		SecurityContext securityContext = SecurityContextHolder.getContext();
+		return (Credentials) securityContext.getAuthentication().getCredentials();
+	}
+
+	public boolean isPublic() {
+		return securityProps.getAllowedPublicApis().contains(httpServletRequest.getRequestURI());
 	}
 
 }

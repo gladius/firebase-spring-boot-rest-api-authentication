@@ -8,23 +8,23 @@ import org.springframework.web.bind.annotation.RestController;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthException;
 
-import io.thepro.apiservice.security.SecurityUtils;
-import io.thepro.apiservice.security.User;
+import io.thepro.apiservice.security.SecurityService;
+import io.thepro.apiservice.security.models.User;
 
 @RestController
-public class AuthController {
+public class SimpleAuthController {
 
 	@Autowired
-	SecurityUtils securityUtils;
+	SecurityService securityService;
 
 	@PostMapping("/me")
-	public User login() {
-		return securityUtils.getPrincipal();
+	public User getUser() {
+		return securityService.getUser();
 	}
 
 	@GetMapping("/create/token")
 	public String getCustomToken() throws FirebaseAuthException {
-		return FirebaseAuth.getInstance().createCustomToken(String.valueOf(securityUtils.getPrincipal().getUid()));
+		return FirebaseAuth.getInstance().createCustomToken(String.valueOf(securityService.getUser().getUid()));
 	}
 
 }

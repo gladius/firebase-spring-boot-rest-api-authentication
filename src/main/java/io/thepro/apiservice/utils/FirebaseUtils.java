@@ -10,7 +10,7 @@ import com.google.cloud.firestore.QueryDocumentSnapshot;
 import com.google.cloud.firestore.QuerySnapshot;
 
 @Component
-public class DBUtils {
+public class FirebaseUtils {
 
 	public void deleteCollection(CollectionReference collection, int batchSize) {
 		try {

@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -22,24 +23,27 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import io.thepro.apiservice.security.models.SecurityProperties;
 
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(securedEnabled = true, jsr250Enabled = true, prePostEnabled = true)
-public class RestSecurityConfig extends WebSecurityConfigurerAdapter {
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	ObjectMapper objectMapper;
 
 	@Autowired
-	RestSecurityProperties restSecProps;
+	SecurityProperties restSecProps;
 
-	@Bean
-	public TokenFilter tokenAuthenticationFilter() {
-		return new TokenFilter();
-	}
+	@Autowired
+	public SecurityFilter tokenAuthenticationFilter;
 
 	@Bean
 	public AuthenticationEntryPoint restAuthenticationEntryPoint() {
@@ -49,7 +53,7 @@ public class RestSecurityConfig extends WebSecurityConfigurerAdapter {
 					AuthenticationException e) throws IOException, ServletException {
 				Map<String, Object> errorObject = new HashMap<String, Object>();
 				int errorCode = 401;
-				errorObject.put("message", "Access Denied");
+				errorObject.put("message", "Unauthorized access of protected resource, invalid credentials");
 				errorObject.put("error", HttpStatus.UNAUTHORIZED);
 				errorObject.put("code", errorCode);
 				errorObject.put("timestamp", new Timestamp(new Date().getTime()));
@@ -60,14 +64,27 @@ public class RestSecurityConfig extends WebSecurityConfigurerAdapter {
 		};
 	}
 
-	@Override
-	protected void configure(HttpSecurity http) throws Exception {
-		http.cors().and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().csrf()
-				.disable().formLogin().disable().httpBasic().disable().exceptionHandling()
-				.authenticationEntryPoint(restAuthenticationEntryPoint()).and().authorizeRequests()
-				.antMatchers(restSecProps.getAllowedpublicapis().stream().toArray(String[]::new)).permitAll()
-				.anyRequest().authenticated();
-		http.addFilterBefore(tokenAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
+	@Bean
+	CorsConfigurationSource corsConfigurationSource() {
+		CorsConfiguration configuration = new CorsConfiguration();
+		configuration.setAllowedOrigins(restSecProps.getAllowedOrigins());
+		configuration.setAllowedMethods(restSecProps.getAllowedMethods());
+		configuration.setAllowedHeaders(restSecProps.getAllowedHeaders());
+		configuration.setAllowCredentials(restSecProps.isAllowCredentials());
+		configuration.setExposedHeaders(restSecProps.getExposedHeaders());
+		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+		source.registerCorsConfiguration("/**", configuration);
+		return source;
 	}
 
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+		http.cors().configurationSource(corsConfigurationSource()).and().csrf().disable().formLogin().disable()
+				.httpBasic().disable().exceptionHandling().authenticationEntryPoint(restAuthenticationEntryPoint())
+				.and().authorizeRequests()
+				.antMatchers(restSecProps.getAllowedPublicApis().stream().toArray(String[]::new)).permitAll()
+				.antMatchers(HttpMethod.OPTIONS, "/**").permitAll().anyRequest().authenticated().and()
+				.addFilterBefore(tokenAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
+				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+	}
 }

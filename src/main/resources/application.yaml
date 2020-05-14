@@ -1,16 +1,30 @@
-firebase:
-  databaseUrl: ${FIREBASE_DATABASE}
-
+server:
+   port: 8090
 security:
-   alloweddomains: http://localhost:3000
-   allowedmethods:
+   firebase-props:
+      database-url: ${FIREBASE_DATABASE}
+      enable-strict-server-session: false
+      enable-check-session-revoked: false
+      enable-logout-everywhere: false
+      session-expiry-in-days: 5
+   cookie-props:
+      max-age-in-minutes: 7200
+      http-only: true
+      secure: true
+      domain: domain.dev
+      path: /
+   allow-credentials: true
+   allowed-origins:
+   - https://domain.dev
+   - http://localhost:3000
+   allowed-methods:
    - GET
    - POST
    - PUT
    - PATCH
    - DELETE
    - OPTIONS
-   allowedheaders:
+   allowed-headers:
    - Authorization
    - Origin
    - Content-Type
@@ -21,7 +35,13 @@ security:
    - Access-Control-Allow-Headers
    - Access-Control-Request-Method
    - X-Requested-With
+   - X-Auth-Token
+   - X-Xsrf-Token
    - Cache-Control
-   allowedpublicapis:
+   - Id-Token
+   allowed-public-apis:
    - /favicon.ico
-   - /public/data
+   - /session/login
+   - /public/*
+   exposed-headers:
+   - X-Xsrf-Token
