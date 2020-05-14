@@ -15,18 +15,17 @@ spec:
         app: firebase-middleware
     spec:
       containers:
-      - name: firebase-middleware
-        image: firebase-middleware:latest
-        env:
-        - name: GOOGLE_APPLICATION_CREDENTIALS
-          value: "/app/thepro-firebase-config.json"
-        ports:
-        - containerPort: 8080
-        volumeMounts:
-          - name: config-volume
-            mountPath: /app/firebase-service-account.json
-            subPath: firebase-service-account.json
+        - name: firebase-middleware
+          image: firebase-middleware:latest
+          env:
+            - name: GOOGLE_APPLICATION_CREDENTIALS
+              value: "/app/thepro-firebase-config.json"
+          ports:
+            - containerPort: 8080
+          volumeMounts:
+            - name: config-volume
+              mountPath: /app/firebase-service-account.json
       volumes:
-        - name: config-volume
-          configMap:
-            name: firebase-service-account-cm
+        - name: firebase-config-volume
+          secret:
+            secretName: firebase-admin-config
