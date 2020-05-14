@@ -35,6 +35,11 @@ This **Spring Boot Starter** is perfect for such situations when you want to ext
 
 ### UI Demo
 
+#### Screenshots
+
+![Image of UI Demo Protected API ](https://raw.githubusercontent.com/gladius/firebase-spring-boot-rest-api-authentication/master/screenshots/ui_demo_protected_api.png)
+![Image of UI Demo Protected API ERROR](https://raw.githubusercontent.com/gladius/firebase-spring-boot-rest-api-authentication/master/screenshots/ui_demo_protected_api-error.png)
+
 #### Client Side Session Demo
 
 Nextjs application demonstrating client side firebase session.
@@ -46,12 +51,6 @@ Nextjs application demonstrating server side firebase session.
 ### Kubernetes Deployment
 
 Checkout the post at https://thepro.io/post/firebase-service-account-configuration-for-spring-boot-on-kubernetes
-
-### Screenshots
-
-![Image of UI Demo Protected API ](https://raw.githubusercontent.com/gladius/firebase-spring-boot-rest-api-authentication/master/screenshots/ui_demo_protected_api.png)
-
-![Image of UI Demo Protected API ERROR](https://raw.githubusercontent.com/gladius/firebase-spring-boot-rest-api-authentication/master/screenshots/ui_demo_protected_api-error.png)
 
 ## Author
 
