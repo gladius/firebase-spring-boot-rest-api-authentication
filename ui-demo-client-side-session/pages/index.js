@@ -32,7 +32,7 @@ export default () => {
               </button>
               <h3>
                 <Link href="/demo">
-                  Go to firebase authorized rest call demo
+                  <a>Go to firebase authorized rest call demo</a>
                 </Link>
               </h3>
             </div>

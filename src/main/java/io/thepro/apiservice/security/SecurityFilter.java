@@ -13,7 +13,6 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
-import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -56,7 +55,7 @@ public class SecurityFilter extends OncePerRequestFilter {
 		CredentialType type = null;
 		boolean strictServerSessionEnabled = securityProps.getFirebaseProps().isEnableStrictServerSession();
 		Cookie sessionCookie = cookieUtils.getCookie("session");
-		String token = getBearerToken(request);
+		String token = securityService.getBearerToken(request);
 		try {
 			if (sessionCookie != null) {
 				System.out.println("~~~~~~~~~~~~~~~~~~~ inside strictServerSessionEnabled  :: ");
@@ -84,15 +83,6 @@ public class SecurityFilter extends OncePerRequestFilter {
 			authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
 			SecurityContextHolder.getContext().setAuthentication(authentication);
 		}
-	}
-
-	private String getBearerToken(HttpServletRequest request) {
-		String bearerToken = null;
-		String authorization = request.getHeader("Authorization");
-		if (StringUtils.hasText(authorization) && authorization.startsWith("Bearer ")) {
-			bearerToken = authorization.substring(7, authorization.length());
-		}
-		return bearerToken;
 	}
 
 	private User firebaseTokenToUserDto(FirebaseToken decodedToken) {

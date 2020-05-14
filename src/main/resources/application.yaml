@@ -3,7 +3,7 @@ server:
 security:
    firebase-props:
       database-url: ${FIREBASE_DATABASE}
-      enable-strict-server-session: false
+      enable-strict-server-session: true
       enable-check-session-revoked: false
       enable-logout-everywhere: false
       session-expiry-in-days: 5
@@ -11,11 +11,11 @@ security:
       max-age-in-minutes: 7200
       http-only: true
       secure: true
-      domain: domain.dev
+      domain: ${DOMAIN}
       path: /
    allow-credentials: true
    allowed-origins:
-   - https://domain.dev
+   - https://${DOMAIN}
    - http://localhost:3000
    allowed-methods:
    - GET

@@ -1,0 +1,19 @@
+{
+  "name": "with-firebase",
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "firebase": "7.11.0",
+    "next": "latest",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0"
+  },
+  "devDependencies": {
+    "dotenv": "8.2.0"
+  }
+}

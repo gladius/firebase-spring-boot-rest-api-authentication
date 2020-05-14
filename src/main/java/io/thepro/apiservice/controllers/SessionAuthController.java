@@ -5,7 +5,6 @@ import java.util.concurrent.TimeUnit;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,7 +18,6 @@ import io.thepro.apiservice.security.models.SecurityProperties;
 import io.thepro.apiservice.utils.CookieUtils;
 
 @RestController
-@ConditionalOnExpression("${security.firebase-props.enable-session-cookie:false}")
 public class SessionAuthController {
 
 	@Autowired
@@ -29,17 +27,19 @@ public class SessionAuthController {
 	CookieUtils cookieUtils;
 
 	@Autowired
-	SecurityProperties restSecProps;
+	SecurityProperties secProps;
 
 	@PostMapping("/session/login")
 	public void sessionLogin(HttpServletRequest request) {
-		String idToken = request.getHeader("Id-Token");
-		int sessionExpiryDays = restSecProps.getFirebaseProps().getSessionExpiryInDays();
+		String idToken = securityService.getBearerToken(request);
+		int sessionExpiryDays = secProps.getFirebaseProps().getSessionExpiryInDays();
 		long expiresIn = TimeUnit.DAYS.toMillis(sessionExpiryDays);
 		SessionCookieOptions options = SessionCookieOptions.builder().setExpiresIn(expiresIn).build();
 		try {
 			String sessionCookieValue = FirebaseAuth.getInstance().createSessionCookie(idToken, options);
 			cookieUtils.setSecureCookie("session", sessionCookieValue,
+					(int) TimeUnit.DAYS.toMinutes(sessionExpiryDays));
+			cookieUtils.setCookie("authenticated", Boolean.toString(true),
 					(int) TimeUnit.DAYS.toMinutes(sessionExpiryDays));
 		} catch (FirebaseAuthException e) {
 			e.printStackTrace();
@@ -49,7 +49,7 @@ public class SessionAuthController {
 	@PostMapping("/session/logout")
 	public void sessionLogout() {
 		if (securityService.getCredentials().getType() == CredentialType.SESSION
-				&& restSecProps.getFirebaseProps().isEnableLogoutEverywhere()) {
+				&& secProps.getFirebaseProps().isEnableLogoutEverywhere()) {
 			try {
 				FirebaseAuth.getInstance().revokeRefreshTokens(securityService.getUser().getUid());
 			} catch (FirebaseAuthException e) {
@@ -57,6 +57,8 @@ public class SessionAuthController {
 			}
 		}
 		cookieUtils.deleteSecureCookie("session");
+		cookieUtils.deleteCookie("authenticated");
+
 	}
 
 }
