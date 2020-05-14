@@ -8,13 +8,15 @@ This **Spring Boot Starter** is perfect for such situations when you want to ext
 
 ### Configuration
 
-Be sure to add the following environment variable globally or project specific run configuration environment variable
+- Be sure to add the following environment variable globally or project specific run configuration environment variable
 
-- GOOGLE_APPLICATION_CREDENTIALS=path_to_firebase_server_config.json
+`GOOGLE_APPLICATION_CREDENTIALS=path_to_firebase_server_config.json`
 
-* The starter can be configured to use firebase session as client side, strictly server side or both options together, while each have their own advantages.
+- The starter can be configured to use firebase session as client side / strictly server side or both together.
+- Htty Only / Secure enabled Session cookies may not work as expected in development hosts (localhost, 120.0.0.1). Adding self signed ssl certificate with reverse proxied host will work perfectly fine.
+- Following application properties can edited to customize for your needs.
 
-| Parameter                                              | Description                                                                                                                                                                 | DataType |
+| Properties                                             | Description                                                                                                                                                                 | DataType |
 | ------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | `security.firebase-props.database-url`                 | Firebase Database URL found in Firebase Web SDK config                                                                                                                      | String   |
 | `security.firebase-props.enable-strict-server-session` | server will only look for session cookie to verify request                                                                                                                  | Boolean  |
