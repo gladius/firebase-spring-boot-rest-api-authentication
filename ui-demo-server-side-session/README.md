@@ -3,6 +3,7 @@
 ## How to use
 
 - Rename config.example.js to config.js and replace its content with firebase web sdk configuration that you get from firebase dashboard.
+- Rename .env.example to .env and replace its MIDDLEWARE_URL to your middleware URI.
 
 ```
 npm install
