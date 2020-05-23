@@ -12,7 +12,7 @@ This **Spring Boot Starter** is perfect for such situations when you want to ext
 
 - The starter can be configured to use firebase session as client side / strictly server side or both together.
 - Htty Only / Secure enabled Session cookies may not work as expected in development hosts (localhost, 120.0.0.1). Adding self signed ssl certificate with reverse proxied host will work perfectly fine.
-- Following application properties can edited to customize for your needs. Sample @ [application.properties](blob/master/src/main/resources/application.yaml)
+- Following application properties can edited to customize for your needs. Sample @ [application.properties](src/main/resources/application.yaml)
 
 | Properties                                             | Description                                                                                                                                                                 | DataType |
 | ------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
