@@ -54,10 +54,10 @@ Checkout the post at https://thepro.io/post/firebase-service-account-configurati
 
 ## Author
 
-👤 **Gladius Thayalarajan**
+👤 **Gladius**
 
 - Website: thepro.io/@/gladius
-- Github: [@gladius](https://github.com/gladius-thayalarajan)
+- Github: [@gladius](https://github.com/gladius)
 
 ## Show your support
 
