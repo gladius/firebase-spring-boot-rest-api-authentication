@@ -38,9 +38,9 @@ public class SessionAuthController {
 		try {
 			String sessionCookieValue = FirebaseAuth.getInstance().createSessionCookie(idToken, options);
 			cookieUtils.setSecureCookie("session", sessionCookieValue,
-					(int) TimeUnit.DAYS.toMinutes(sessionExpiryDays));
+					sessionExpiryDays);
 			cookieUtils.setCookie("authenticated", Boolean.toString(true),
-					(int) TimeUnit.DAYS.toMinutes(sessionExpiryDays));
+					sessionExpiryDays);
 		} catch (FirebaseAuthException e) {
 			e.printStackTrace();
 		}
