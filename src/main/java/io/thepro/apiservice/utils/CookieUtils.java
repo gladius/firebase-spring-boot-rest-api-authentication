@@ -1,5 +1,6 @@
 package io.thepro.apiservice.utils;
 
+import java.util.concurrent.TimeUnit;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -26,8 +27,8 @@ public class CookieUtils {
 		return WebUtils.getCookie(httpServletRequest, name);
 	}
 
-	public void setCookie(String name, String value, int expiryInMinutes) {
-		int expiresInSeconds = expiryInMinutes * 60 * 60;
+	public void setCookie(String name, String value, int expiryInDays) {
+		int expiresInSeconds = (int) TimeUnit.DAYS.toSeconds(expiryInDays);
 		Cookie cookie = new Cookie(name, value);
 		cookie.setSecure(restSecProps.getCookieProps().isSecure());
 		cookie.setPath(restSecProps.getCookieProps().getPath());
@@ -36,8 +37,8 @@ public class CookieUtils {
 		httpServletResponse.addCookie(cookie);
 	}
 
-	public void setSecureCookie(String name, String value, int expiryInMinutes) {
-		int expiresInSeconds = expiryInMinutes * 60 * 60;
+	public void setSecureCookie(String name, String value, int expiryInDays) {
+		int expiresInSeconds = (int) TimeUnit.DAYS.toSeconds(expiryInDays);
 		Cookie cookie = new Cookie(name, value);
 		cookie.setHttpOnly(restSecProps.getCookieProps().isHttpOnly());
 		cookie.setSecure(restSecProps.getCookieProps().isSecure());
