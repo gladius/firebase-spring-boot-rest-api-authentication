@@ -4,6 +4,7 @@
 
 - Rename config.example.js to config.js and replace its content with firebase web sdk configuration that you get from firebase dashboard.
 - Rename .env.example to .env and replace its MIDDLEWARE_URL to your middleware URI.
+- Note : - Cookies won't work with localhost, try to setup a local dev domain mapping (on \*nix systems /etc/host) to the spring server through a reverse proxy.
 
 ```
 npm install

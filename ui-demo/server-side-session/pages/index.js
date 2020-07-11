@@ -50,7 +50,6 @@ export default ({ isAuthenticated }) => {
     })
       .then((res) => {
         location.reload(true);
-        console.log("response from backend:: ", res);
       })
       .catch();
   };

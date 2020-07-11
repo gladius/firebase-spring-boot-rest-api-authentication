@@ -3,7 +3,7 @@ server:
 security:
    firebase-props:
       database-url: ${FIREBASE_DATABASE}
-      enable-strict-server-session: true
+      enable-strict-server-session: ${ENABLE_SERVER_SESSION}
       enable-check-session-revoked: false
       enable-logout-everywhere: false
       session-expiry-in-days: 5
@@ -11,11 +11,11 @@ security:
       max-age-in-minutes: 7200
       http-only: true
       secure: true
-      domain: ${DOMAIN}
+      domain: ${CORS_DOMAIN}
       path: /
    allow-credentials: true
    allowed-origins:
-   - https://${DOMAIN}
+   - https://${CORS_DOMAIN}
    - http://localhost:3000
    allowed-methods:
    - GET
@@ -45,3 +45,10 @@ security:
    - /public/*
    exposed-headers:
    - X-Xsrf-Token
+   
+logging:
+   level:
+       org:
+        springframework:
+          security: DEBUG
+       root: INFO

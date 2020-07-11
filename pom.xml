@@ -17,7 +17,7 @@
 
 	<properties>
 		<java.version>1.8</java.version>
-		<firebase.version>6.13.0</firebase.version>
+		<firebase.version>6.14.0</firebase.version>
 	</properties>
 
 	<dependencies>

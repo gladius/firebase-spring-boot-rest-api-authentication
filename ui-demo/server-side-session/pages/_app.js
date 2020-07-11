@@ -1,4 +1,3 @@
-import UserProvider from "../context/userContext";
 import Head from "next/head";
 
 // Custom App to wrap it with context provider
@@ -13,8 +12,6 @@ export default ({ Component, pageProps }) => (
         rel="stylesheet"
       />
     </Head>
-    <UserProvider>
-      <Component {...pageProps} />
-    </UserProvider>
+    <Component {...pageProps} />
   </>
 );
