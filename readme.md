@@ -1,6 +1,6 @@
 # Firebase Authentication for Spring boot [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
 
-[![Open with ThePro](https://thepro.io/button.svg)](https://thepro.io/post/firebase-authentication-for-spring-boot-rest-api)
+[![Open with ThePro](https://thepro.io/button.svg)](https://thepro.io/post/firebase-authentication-for-spring-boot-rest-api-KL)
 
 Firebase is a backendless platform to run applications without dedicated backend. But, sometimes you may need to communicate with API of an exisiting backend or you may want a dedicated backend to perform operations that cannot be done using firebase infrastructure .
 
@@ -13,6 +13,10 @@ This **Spring Boot Starter** is perfect for such situations when you want to ext
 - The starter can be configured to use firebase session as client side / strictly server side or both together.
 - Htty Only / Secure enabled Session cookies may not work as expected in development hosts (localhost, 120.0.0.1). Adding self signed ssl certificate with reverse proxied host will work perfectly fine.
 - Following application properties can edited to customize for your needs. Sample @ [application.yaml](src/main/resources/)
+
+## Tutorials :
+
+* https://thepro.io/post/firebase-authentication-for-spring-boot-rest-api-KL
 
 ### UI Demo
 

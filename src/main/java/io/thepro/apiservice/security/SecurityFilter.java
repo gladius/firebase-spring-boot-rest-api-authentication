@@ -50,7 +50,7 @@ public class SecurityFilter extends OncePerRequestFilter {
 	}
 
 	private void verifyToken(HttpServletRequest request) {
-		String session = null;
+		String sessionCookieValue = null;
 		FirebaseToken decodedToken = null;
 		CredentialType type = null;
 		boolean strictServerSessionEnabled = securityProps.getFirebaseProps().isEnableStrictServerSession();
@@ -58,8 +58,8 @@ public class SecurityFilter extends OncePerRequestFilter {
 		String token = securityService.getBearerToken(request);
 		try {
 			if (sessionCookie != null) {
-				session = sessionCookie.getValue();
-				decodedToken = FirebaseAuth.getInstance().verifySessionCookie(session,
+				sessionCookieValue = sessionCookie.getValue();
+				decodedToken = FirebaseAuth.getInstance().verifySessionCookie(sessionCookieValue,
 						securityProps.getFirebaseProps().isEnableCheckSessionRevoked());
 				type = CredentialType.SESSION;
 			} else if (!strictServerSessionEnabled) {
@@ -75,7 +75,7 @@ public class SecurityFilter extends OncePerRequestFilter {
 		User user = firebaseTokenToUserDto(decodedToken);
 		if (user != null) {
 			UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(user,
-					new Credentials(type, decodedToken, token, session), null);
+					new Credentials(type, decodedToken, token, sessionCookieValue), null);
 			authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
 			SecurityContextHolder.getContext().setAuthentication(authentication);
 		}
