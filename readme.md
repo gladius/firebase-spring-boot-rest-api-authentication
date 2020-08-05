@@ -11,12 +11,14 @@ This **Spring Boot Starter** is perfect for such situations when you want to ext
 - Be sure to add the following environment variable globally or project specific run configuration environment variable `GOOGLE_APPLICATION_CREDENTIALS=path_to_firebase_server_config.json`
 
 - The starter can be configured to use firebase session as client side / strictly server side or both together.
-- Htty Only / Secure enabled Session cookies may not work as expected in development hosts (localhost, 120.0.0.1). Adding self signed ssl certificate with reverse proxied host will work perfectly fine.
+- Htty Only / Secure enabled Session cookies may not work as expected in development hosts (localhost, 120.0.0.1). Adding self signed ssl certificate with reverse proxied host will work perfectly fine. Read this article => [Create Local Domains with SSL for all Development Web Applications](https://thepro.io/post/create-local-domains-with-ssl-for-all-development-web-applications-Ya)
 - Following application properties can edited to customize for your needs. Sample @ [application.yaml](src/main/resources/)
 
 ## Tutorials :
 
-* https://thepro.io/post/firebase-authentication-for-spring-boot-rest-api-KL
+- [Firebase Authentication for Spring Boot Rest API](https://thepro.io/post/firebase-authentication-for-spring-boot-rest-api-KL)
+- [Create Local Domains with SSL for all Development Web Applications](https://thepro.io/post/create-local-domains-with-ssl-for-all-your-web-applications-Ya)
+- [Configuring Firebase with Spring Boot for Kubernetes Deployment](https://thepro.io/post/configuring-firebase-with-spring-boot-for-kubernetes-deployment-wL)
 
 ### UI Demo
 
@@ -35,7 +37,7 @@ Nextjs application demonstrating server side firebase session. [server-side-sess
 
 ### Kubernetes Deployment
 
-Checkout the post at https://thepro.io/post/firebase-service-account-configuration-for-spring-boot-on-kubernetes
+Checkout the post at https://thepro.io/post/configuring-firebase-with-spring-boot-for-kubernetes-deployment-wL
 
 ## Author
 
