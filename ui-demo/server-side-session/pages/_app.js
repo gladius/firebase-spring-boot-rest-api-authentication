@@ -1,7 +1,6 @@
 import Head from "next/head";
 
-// Custom App to wrap it with context provider
-export default ({ Component, pageProps }) => (
+const App = ({ Component, pageProps }) => (
   <>
     <Head>
       <title>Spring Boot Firebase Authorization Demo</title>
@@ -15,3 +14,5 @@ export default ({ Component, pageProps }) => (
     <Component {...pageProps} />
   </>
 );
+
+export default App;

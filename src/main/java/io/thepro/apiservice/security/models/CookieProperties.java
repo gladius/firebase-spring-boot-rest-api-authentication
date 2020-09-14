@@ -4,9 +4,9 @@ import lombok.Data;
 
 @Data
 public class CookieProperties {
-	String domain;
-	String path;
-	boolean httpOnly;
-	boolean secure;
-	int maxAgeInMinutes;
+	private String domain;
+	private String path;
+	private boolean httpOnly;
+	private boolean secure;
+	private int maxAgeInMinutes;
 }

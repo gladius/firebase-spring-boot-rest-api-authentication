@@ -7,13 +7,13 @@
     "start": "next start"
   },
   "dependencies": {
-    "axios": "^0.19.2",
-    "firebase": "7.17.1",
-    "next": "^9.5.1",
+    "axios": "^0.20.0",
+    "firebase": "^7.20.0",
+    "next": "^9.5.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
   "devDependencies": {
-    "dotenv": "8.2.0"
+    "dotenv": "^8.2.0"
   }
 }

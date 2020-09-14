@@ -21,13 +21,13 @@ import io.thepro.apiservice.utils.CookieUtils;
 public class SessionAuthController {
 
 	@Autowired
-	SecurityService securityService;
+	private SecurityService securityService;
 
 	@Autowired
-	CookieUtils cookieUtils;
+	private CookieUtils cookieUtils;
 
 	@Autowired
-	SecurityProperties secProps;
+	private SecurityProperties secProps;
 
 	@PostMapping("/session/login")
 	public void sessionLogin(HttpServletRequest request) {

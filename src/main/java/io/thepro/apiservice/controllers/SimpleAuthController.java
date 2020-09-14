@@ -15,7 +15,7 @@ import io.thepro.apiservice.security.models.User;
 public class SimpleAuthController {
 
 	@Autowired
-	SecurityService securityService;
+	private SecurityService securityService;
 
 	@PostMapping("/me")
 	public User getUser() {

@@ -24,7 +24,7 @@ public class FirebaseConfig {
 	@Primary
 	@Bean
 	public void firebaseInit() throws IOException {
-		FirebaseOptions options = new FirebaseOptions.Builder()
+		FirebaseOptions options = FirebaseOptions.builder()
 				.setCredentials(GoogleCredentials.getApplicationDefault())
 				.setDatabaseUrl(secProps.getFirebaseProps().getDatabaseUrl()).build();
 		if (FirebaseApp.getApps().isEmpty()) {

@@ -11,19 +11,15 @@ import org.springframework.util.StringUtils;
 import io.thepro.apiservice.security.models.Credentials;
 import io.thepro.apiservice.security.models.SecurityProperties;
 import io.thepro.apiservice.security.models.User;
-import io.thepro.apiservice.utils.CookieUtils;
 
 @Service
 public class SecurityService {
 
 	@Autowired
-	HttpServletRequest httpServletRequest;
+	private HttpServletRequest httpServletRequest;
 
 	@Autowired
-	CookieUtils cookieUtils;
-
-	@Autowired
-	SecurityProperties securityProps;
+	private SecurityProperties securityProps;
 
 	public User getUser() {
 		User userPrincipal = null;

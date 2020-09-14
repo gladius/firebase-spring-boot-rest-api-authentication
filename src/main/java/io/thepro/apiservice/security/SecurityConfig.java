@@ -37,13 +37,13 @@ import io.thepro.apiservice.security.models.SecurityProperties;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
-	ObjectMapper objectMapper;
+	private ObjectMapper objectMapper;
 
 	@Autowired
-	SecurityProperties restSecProps;
+	private SecurityProperties restSecProps;
 
 	@Autowired
-	public SecurityFilter tokenAuthenticationFilter;
+	private SecurityFilter tokenAuthenticationFilter;
 
 	@Bean
 	public AuthenticationEntryPoint restAuthenticationEntryPoint() {

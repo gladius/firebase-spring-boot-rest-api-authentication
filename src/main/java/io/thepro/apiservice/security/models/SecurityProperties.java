@@ -12,13 +12,13 @@ import lombok.Data;
 @Data
 public class SecurityProperties {
 
-	CookieProperties cookieProps;
-	FirebaseProperties firebaseProps;
-	boolean allowCredentials;
-	List<String> allowedOrigins;
-	List<String> allowedHeaders;
-	List<String> exposedHeaders;
-	List<String> allowedMethods;
-	List<String> allowedPublicApis;
+	private CookieProperties cookieProps;
+	private FirebaseProperties firebaseProps;
+	private boolean allowCredentials;
+	private List<String> allowedOrigins;
+	private List<String> allowedHeaders;
+	private List<String> exposedHeaders;
+	private List<String> allowedMethods;
+	private List<String> allowedPublicApis;
 
 }

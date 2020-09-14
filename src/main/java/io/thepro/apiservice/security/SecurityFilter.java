@@ -31,16 +31,13 @@ import lombok.extern.slf4j.Slf4j;
 public class SecurityFilter extends OncePerRequestFilter {
 
 	@Autowired
-	SecurityService securityService;
+	private SecurityService securityService;
 
 	@Autowired
-	SecurityProperties restSecProps;
+	private CookieUtils cookieUtils;
 
 	@Autowired
-	CookieUtils cookieUtils;
-
-	@Autowired
-	SecurityProperties securityProps;
+	private SecurityProperties securityProps;
 
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)

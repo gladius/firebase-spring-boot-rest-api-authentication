@@ -5,10 +5,10 @@ import lombok.Data;
 @Data
 public class FirebaseProperties {
 
-	int sessionExpiryInDays;
-	String databaseUrl;
-	boolean enableStrictServerSession;
-	boolean enableCheckSessionRevoked;
-	boolean enableLogoutEverywhere;
+	private int sessionExpiryInDays;
+	private String databaseUrl;
+	private boolean enableStrictServerSession;
+	private boolean enableCheckSessionRevoked;
+	private boolean enableLogoutEverywhere;
 
 }

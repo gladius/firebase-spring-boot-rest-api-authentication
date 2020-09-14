@@ -15,7 +15,7 @@ import io.thepro.apiservice.security.SecurityService;
 public class ProtectedController {
 
 	@Autowired
-	SecurityService securityService;
+	private SecurityService securityService;
 
 	@GetMapping("/data")
 	public Map<String, Object> getData() {
