@@ -1,0 +1,84 @@
+body {
+  font: 15px Helvetica, Arial, sans-serif;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  max-width: 600px;
+}
+.label {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #6c757d;
+}
+.status {
+  font-size: 14px;
+  font-weight: 500;
+  padding: 1px 6px;
+  margin: 0px 10px;
+  border-radius: 5px;
+  color: white;
+}
+.message {
+  margin: 10px 5px;
+  font-size: 16px;
+}
+.path {
+  color: #6c757d;
+  font-size: 20px;
+  font-weight: 500;
+  font-style: italic;
+  text-decoration: underline;
+  margin: 0px 10px;
+}
+.card {
+  border: 1px solid #ced4da;
+  margin: 30px 0px;
+  padding: 15px 10px;
+  border-radius: 2px;
+}
+.button {
+  border-radius: 2px;
+  border-width: 0px;
+  padding: 5px 10px;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+}
+.primary {
+  background: #7209b7;
+  color: #ffffff;
+}
+.secondary {
+  background: #adb5bd;
+  color: #000000;
+}
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.role {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 2px 5px;
+  margin: 0px 10px;
+  border-radius: 2px;
+  color: black;
+  background-color: #ffd23f;
+  border: 1px solid #ffd23f;
+}
+
+.access-closed {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 18px;
+}

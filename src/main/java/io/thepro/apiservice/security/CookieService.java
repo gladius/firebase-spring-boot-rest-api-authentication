@@ -1,4 +1,4 @@
-package io.thepro.apiservice.utils;
+package io.thepro.apiservice.security;
 
 import java.util.concurrent.TimeUnit;
 import javax.servlet.http.Cookie;
@@ -12,7 +12,7 @@ import org.springframework.web.util.WebUtils;
 import io.thepro.apiservice.security.models.SecurityProperties;
 
 @Service
-public class CookieUtils {
+public class CookieService {
 
 	@Autowired
 	HttpServletRequest httpServletRequest;

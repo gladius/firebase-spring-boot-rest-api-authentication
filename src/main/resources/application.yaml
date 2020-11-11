@@ -16,7 +16,7 @@ security:
    allow-credentials: true
    allowed-origins:
    - https://${CORS_DOMAIN}
-   - http://localhost:3000
+   - http://localhost:4000
    allowed-methods:
    - GET
    - POST
@@ -45,10 +45,21 @@ security:
    - /public/*
    exposed-headers:
    - X-Xsrf-Token
-   
+   valid-application-roles:
+   - ROLE_SUPER
+   - ROLE_ADMIN
+   - ROLE_SELLER
+   - ROLE_CUSTOMER
+   super-admins: ${SUPER_ADMINS}
 logging:
    level:
-       org:
+      root: WARN
+      org:
         springframework:
-          security: DEBUG
-       root: INFO
+          web: DEBUG
+        hibernate: ERROR
+      io:
+        thepro: DEBUG
+   pattern:
+     console: "%d{HH:mm:ss} || %highlight(%5p) < %highlight(%-35.35logger{35}) > %highlight(%m%n)"
+    
