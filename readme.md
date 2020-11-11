@@ -22,15 +22,15 @@ This **Spring Boot Starter** is perfect for such situations when you want to ext
 
 ### UI Demo
 
+#### UI Demo
+
+Nextjs application demonstrating client side firebase session. [ui-demo](ui-demo/)
+
 #### Screenshots
 
 |                                                                        Logged out                                                                         |                                                                        Logged In                                                                         |
 | :-------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------: |
 | ![Image of UI Loggedout](https://raw.githubusercontent.com/gladius/firebase-spring-boot-rest-api-authentication/master/ui-demo/screenshots/loggedout.png) | ![Image of UI LoggedIn ](https://raw.githubusercontent.com/gladius/firebase-spring-boot-rest-api-authentication/master/ui-demo/screenshots/loggedin.png) |
-
-#### UI Demo
-
-Nextjs application demonstrating client side firebase session. [ui-demo](ui-demo/)
 
 ### Kubernetes Deployment
 
