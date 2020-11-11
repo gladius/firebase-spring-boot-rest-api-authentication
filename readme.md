@@ -14,6 +14,23 @@ This **Spring Boot Starter** is perfect for such situations when you want to ext
 - Htty Only / Secure enabled Session cookies may not work as expected in development hosts (localhost, 120.0.0.1). Adding self signed ssl certificate with reverse proxied host will work perfectly fine. Read this article => [Create Local Domains with SSL for all Development Web Applications](https://thepro.io/post/create-local-domains-with-ssl-for-all-development-web-applications-Ya)
 - Following application properties can edited to customize for your needs. Sample @ [application.yaml](src/main/resources/)
 
+### Role Management
+
+- Roles can be added through `SecurityRoleService` during registeration of user or manually managed by Super admins
+- Super Admins are defined through application property `security.super-admins`
+- With roles interated with spring security, spring authorization annotations like @Secured, @RolesAllowed, @PreAuthorize, @PostAuthorized etc will work out of the box.
+- I personally like to define per role annotations like @IsSuper, @IsSeller etc for the sake of simplicity.
+
+```
+    @GetMapping("data")
+	@isSeller
+	public String getProtectedData() {
+		return "You have accessed seller only data from spring boot";
+	}
+```
+
+- UI useAuth hook also has utility properties like roles, hasRole, isSuper, isSeller properties exposed accross the application to allow or restrict access to specific UI components
+
 ## Tutorials :
 
 - [Firebase Authentication for Spring Boot Rest API](https://thepro.io/post/firebase-authentication-for-spring-boot-rest-api-KL)

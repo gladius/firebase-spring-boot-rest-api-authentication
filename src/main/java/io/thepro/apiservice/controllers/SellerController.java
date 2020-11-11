@@ -16,5 +16,4 @@ public class SellerController {
 		return "You have accessed seller only data from spring boot";
 	}
 	
-
 }

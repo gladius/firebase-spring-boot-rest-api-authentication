@@ -3,11 +3,7 @@ import Navbar from "../components/navbar";
 import Demo from "../components/data/demo";
 
 const Index = () => {
-  const user = useAuth();
-
-  const { loadingUser, roles, isSeller, isSuper } = user;
-
-  console.log("User ==> ", user);
+  const { loadingUser, roles, isSeller, isSuper } = useAuth();
 
   return (
     <div className="container">
