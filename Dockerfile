@@ -1,4 +1,4 @@
-FROM openjdk:11
+FROM openjdk:15
 VOLUME /tmp
 COPY target/firebase-api-service-0.0.1-SNAPSHOT.jar app.jar
 RUN sh -c 'touch /app.jar'

@@ -27,8 +27,8 @@ import io.thepro.apiservice.security.models.Credentials;
 import io.thepro.apiservice.security.models.Credentials.CredentialType;
 import io.thepro.apiservice.security.models.SecurityProperties;
 import io.thepro.apiservice.security.models.User;
-import io.thepro.apiservice.security.roles.SecurityRoleConstants;
-import io.thepro.apiservice.security.roles.SecurityRoleService;
+import io.thepro.apiservice.security.roles.RoleConstants;
+import io.thepro.apiservice.security.roles.RoleService;
 import lombok.extern.slf4j.Slf4j;
 
 @Component
@@ -45,7 +45,7 @@ public class SecurityFilter extends OncePerRequestFilter {
 	private SecurityProperties securityProps;
 
 	@Autowired
-	SecurityRoleService securityRoleService;
+	RoleService securityRoleService;
 
 	@Autowired
 	private FirebaseAuth firebaseAuth;
@@ -85,14 +85,14 @@ public class SecurityFilter extends OncePerRequestFilter {
 		if (user != null) {
 			// Handle Super Role
 			if (securityProps.getSuperAdmins().contains(user.getEmail())) {
-				if (!decodedToken.getClaims().containsKey(SecurityRoleConstants.ROLE_SUPER)) {
+				if (!decodedToken.getClaims().containsKey(RoleConstants.ROLE_SUPER)) {
 					try {
-						securityRoleService.addRole(decodedToken.getUid(), SecurityRoleConstants.ROLE_SUPER);
+						securityRoleService.addRole(decodedToken.getUid(), RoleConstants.ROLE_SUPER);
 					} catch (Exception e) {
 						log.error("Super Role registeration expcetion ", e);
 					}
 				}
-				authorities.add(new SimpleGrantedAuthority(SecurityRoleConstants.ROLE_SUPER));
+				authorities.add(new SimpleGrantedAuthority(RoleConstants.ROLE_SUPER));
 			}
 			// Handle Other roles
 			decodedToken.getClaims().forEach((k, v) -> authorities.add(new SimpleGrantedAuthority(k)));

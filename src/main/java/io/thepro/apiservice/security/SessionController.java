@@ -20,7 +20,7 @@ import io.thepro.apiservice.security.models.User;
 
 @RestController
 @RequestMapping("session")
-public class SecurityAuthController {
+public class SessionController {
 
 	@Autowired
 	private SecurityService securityService;

@@ -15,7 +15,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Service
 @Slf4j
-public class SecurityRoleServiceImpl implements SecurityRoleService {
+public class RoleServiceImpl implements RoleService {
 
 	@Autowired
 	FirebaseAuth firebaseAuth;
@@ -28,13 +28,11 @@ public class SecurityRoleServiceImpl implements SecurityRoleService {
 		try {
 			UserRecord user = firebaseAuth.getUser(uid);
 			Map<String, Object> claims = new HashMap<>();
-			log.error("@@@@@@@@@@@@ existing claims ==> {}",user.getCustomClaims());
 			user.getCustomClaims().forEach((k, v) -> claims.put(k, v));
 			if (securityProps.getValidApplicationRoles().contains(role)) {
 				if (!claims.containsKey(role)) {
 					claims.put(role.toLowerCase(), true);
 				}
-				log.error("set cusom user claims ==> {}",claims);
 				firebaseAuth.setCustomUserClaims(uid, claims);
 			} else {
 				throw new Exception("Not a valid Application role, Allowed roles => "

@@ -8,12 +8,10 @@
   },
   "dependencies": {
     "axios": "^0.21.0",
-    "firebase": "^8.0.1",
-    "next": "^10.0.1",
+    "firebase": "^8.1.2",
+    "next": "^10.0.3",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
   },
-  "devDependencies": {
-    "dotenv": "^8.2.0"
-  }
+  "devDependencies": {}
 }

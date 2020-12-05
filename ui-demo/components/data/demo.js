@@ -24,22 +24,30 @@ const backend = ({ url, label }) => {
         setStatus(error.response.status);
       });
   }, [idToken]);
-
+  console.log("data ==> ", data);
   return (
-    <div className="card">
-      <div>
-        <span
-          className="status"
-          style={{ background: status == 200 ? "#02c39a" : "#d90429" }}
-        >
-          {status}
-        </span>
-        <span className="label">{label}</span>
-        <span className="path">{url}</span>
-      </div>
-
-      <div className="message">{JSON.stringify(data)}</div>
-    </div>
+    <>
+      {data && (
+        <>
+          <td className="data">
+            <div className="message">
+              {status == 200 ? data : <>{data.message}</>}
+            </div>
+          </td>
+          <td>
+            <span className="path">{url}</span>
+          </td>
+          <td>
+            <span
+              className="status"
+              style={{ background: status == 200 ? "#02c39a" : "#d90429" }}
+            >
+              {status}
+            </span>
+          </td>
+        </>
+      )}
+    </>
   );
 };
 

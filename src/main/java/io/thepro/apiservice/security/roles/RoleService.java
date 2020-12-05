@@ -1,6 +1,6 @@
 package io.thepro.apiservice.security.roles;
 
-public interface SecurityRoleService {
+public interface RoleService {
 
 	void addRole(String uid, String role) throws Exception;
 

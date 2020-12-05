@@ -1,6 +1,6 @@
 package io.thepro.apiservice.security.roles;
 
-public class SecurityRoleConstants {
+public class RoleConstants {
 	public static final String ROLE_SUPER = "ROLE_SUPER";
 
 	public static final String ROLE_ADMIN = "ROLE_ADMIN";
