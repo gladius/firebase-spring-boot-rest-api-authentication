@@ -31,7 +31,7 @@ This **Spring Boot Starter** is perfect for such situations when you want to ext
 
 - UI useAuth hook also has utility properties like **_ `roles, hasRole, isSuper, isSeller `_** properties exposed accross the application to allow or restrict access to specific UI components
 
-## Tutorials :
+## Related Tutorials :
 
 - [Firebase Authentication for Spring Boot Rest API](https://thepro.io/post/firebase-authentication-for-spring-boot-rest-api-5V)
 - [Firebase with Spring Boot for Kubernetes Deployment Configuration](https://thepro.io/post/firebase-with-spring-boot-kubernetes-deployment-configuration-RA)
@@ -48,10 +48,6 @@ Nextjs application demonstrating client side firebase session. [ui-demo](ui-demo
 |                                                                        Logged out                                                                         |                                                                        Logged In                                                                         |
 | :-------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------: |
 | ![Image of UI Loggedout](https://raw.githubusercontent.com/gladius/firebase-spring-boot-rest-api-authentication/master/ui-demo/screenshots/loggedout.png) | ![Image of UI LoggedIn ](https://raw.githubusercontent.com/gladius/firebase-spring-boot-rest-api-authentication/master/ui-demo/screenshots/loggedin.png) |
-
-### Kubernetes Deployment
-
-Checkout the post at https://thepro.io/post/configuring-firebase-with-spring-boot-for-kubernetes-deployment-wL
 
 ## Author
 
