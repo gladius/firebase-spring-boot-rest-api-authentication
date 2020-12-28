@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useAuth } from "../../context/useAuth";
+import { useAuth } from "contexts/useAuth.js";
 
 const backend = ({ url, label }) => {
   const { idToken } = useAuth();

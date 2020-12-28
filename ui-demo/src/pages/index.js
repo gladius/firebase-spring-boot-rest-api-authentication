@@ -1,6 +1,6 @@
-import { useAuth } from "../context/useAuth";
-import Navbar from "../components/navbar";
-import Demo from "../components/data/demo";
+import { useAuth } from "contexts/useAuth";
+import Navbar from "components/navbar";
+import Demo from "components/data/demo";
 
 const Index = () => {
   const { loadingUser, roles, isSeller, isSuper } = useAuth();

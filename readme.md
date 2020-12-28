@@ -34,6 +34,7 @@ This **Spring Boot Starter** is perfect for such situations when you want to ext
 ## Related Tutorials :
 
 - [Firebase Authentication for Spring Boot Rest API](https://thepro.io/post/firebase-authentication-for-spring-boot-rest-api-5V)
+- [Firebase and Spring Boot Based Role Management and Authorization](https://thepro.io/post/firebase-and-spring-boot-based-role-management-and-authorization-3D)
 - [Firebase with Spring Boot for Kubernetes Deployment Configuration](https://thepro.io/post/firebase-with-spring-boot-kubernetes-deployment-configuration-RA)
 - [Local Domain Names with SSL for development applications ](https://thepro.io/post/local-domain-names-with-ssl-for-local-development-applications-LG)
 

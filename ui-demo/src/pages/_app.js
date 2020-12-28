@@ -1,5 +1,5 @@
-import UserProvider from "../context/useAuth";
-import "../styles.css";
+import UserProvider from "contexts/useAuth";
+import "../../styles.css";
 
 const MyApp = ({ Component, pageProps }) => {
   return (
