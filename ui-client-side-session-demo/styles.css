@@ -96,3 +96,16 @@ tr {
   color: #d90429;
   width: 500px !important;
 }
+.user-nav-section {
+  display: flex;
+  flex-direction: column;
+}
+.user-info {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+}

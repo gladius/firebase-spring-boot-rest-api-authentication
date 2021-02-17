@@ -15,6 +15,7 @@ import com.google.firebase.FirebaseOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.messaging.FirebaseMessaging;
+import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
 
 import io.thepro.apiservice.security.models.SecurityProperties;
 
@@ -55,5 +56,10 @@ public class FirebaseConfig {
 	@Bean
 	public FirebaseMessaging getMessaging() throws IOException {
 		return FirebaseMessaging.getInstance(getfirebaseApp());
+	}
+
+	@Bean
+	public FirebaseRemoteConfig getRemoteConfig() throws IOException {
+		return FirebaseRemoteConfig.getInstance(getfirebaseApp());
 	}
 }

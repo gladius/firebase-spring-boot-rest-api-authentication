@@ -18,8 +18,8 @@ This **Spring Boot Starter** is perfect for such situations when you want to ext
 
 - Roles can be added through `SecurityRoleService` during registeration of user or manually managed by Super admins
 - Super Admins are defined through application property `security.super-admins`
-- With roles interated with spring security, spring authorization annotations like **`@Secured, @RolesAllowed, @PreAuthorize, @PostAuthorized`** etc will work out of the box.
-- I personally like to define per role annotations like **`@IsSuper, @IsSeller`** etc for the sake of simplicity.
+- With roles feature tightly integrated with spring security, Spring authorization annotations like **`@Secured, @RolesAllowed, @PreAuthorize, @PostAuthorized`** etc will work perfectly fine.
+- I personally like to define per role annotations like **`@IsSuper, @IsSeller`** for the sake of simplicity.
 
 ```
     @GetMapping("data")
@@ -31,24 +31,39 @@ This **Spring Boot Starter** is perfect for such situations when you want to ext
 
 - UI useAuth hook also has utility properties like **_ `roles, hasRole, isSuper, isSeller `_** properties exposed accross the application to allow or restrict access to specific UI components
 
+### End to End Test
+
+The method I used to solve the problem of testing firebase social authentication is opinionated and may not be suitable to everyone. Simply put we create a toggleable Test User functionaly that authenticates specific set of static test users through firebase custom token. This solves a lot of issues associated with testing a third party backed authentication flow. Read this post at thepro.io for more in detail explanation [End to End Test Firebase Authentication with Cypress, Spring Boot & Nextjs](https://thepro.io/post/end-to-end-test-firebase-authentication-with-cypress,-spring-boot-&-nextjs-Mg)
+
 ## Related Tutorials :
 
 - [Firebase Authentication for Spring Boot Rest API](https://thepro.io/post/firebase-authentication-for-spring-boot-rest-api-5V)
 - [Firebase and Spring Boot Based Role Management and Authorization](https://thepro.io/post/firebase-and-spring-boot-based-role-management-and-authorization-3D)
 - [Firebase with Spring Boot for Kubernetes Deployment Configuration](https://thepro.io/post/firebase-with-spring-boot-kubernetes-deployment-configuration-RA)
 - [Local Domain Names with SSL for development applications ](https://thepro.io/post/local-domain-names-with-ssl-for-local-development-applications-LG)
+- [Firebase Server Side Session Authentication with Next.js and Spring Boot](https://thepro.io/post/firebase-server-side-session-authentication-with-next.js-and-spring-boot-py)
+- [End to End Test Firebase Authentication with Cypress, Spring Boot & Nextjs](https://thepro.io/post/end-to-end-test-firebase-authentication-with-cypress,-spring-boot-&-nextjs-Mg)
 
 ### UI Demo
 
-#### UI Demo
+Nextjs application demonstrating Client side firebase session. [ui-client-side-session-demo](ui-client-side-session-demo/)
+Nextjs application demonstrating Server side firebase session. [ui-server-side-session-demo](ui-server-side-session-demo/)
 
-Nextjs application demonstrating client side firebase session. [ui-demo](ui-demo/)
+### Screenshots
 
-#### Screenshots
+#### Client Side Session Screenshots
 
-|                                                                        Logged out                                                                         |                                                                        Logged In                                                                         |
-| :-------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| ![Image of UI Loggedout](https://raw.githubusercontent.com/gladius/firebase-spring-boot-rest-api-authentication/master/ui-demo/screenshots/loggedout.png) | ![Image of UI LoggedIn ](https://raw.githubusercontent.com/gladius/firebase-spring-boot-rest-api-authentication/master/ui-demo/screenshots/loggedin.png) |
+|                                                                                  Logged out                                                                                   |                                                                                  Logged In                                                                                   |
+| :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| ![Image of UI Loggedout](https://raw.githubusercontent.com/gladius/firebase-spring-boot-rest-api-authentication/master/ui-client-side-session-demo/screenshots/loggedout.png) | ![Image of UI LoggedIn ](https://raw.githubusercontent.com/gladius/firebase-spring-boot-rest-api-authentication/master/ui-client-side-session-demo/screenshots/loggedin.png) |
+
+#### Server Side Session Screenshots
+
+![Image of UI Server Side Session](https://raw.githubusercontent.com/gladius/firebase-spring-boot-rest-api-authentication/master/ui-server-side-session-demo/screenshots/screenshot.png)
+
+#### Cypress End to End Tests Screencast
+
+![Image of End to End Tests ](https://raw.githubusercontent.com/gladius/firebase-spring-boot-rest-api-authentication/master/ui-server-side-session-demo/screenshots/cypress_auth_test.gif)
 
 ## Author
 

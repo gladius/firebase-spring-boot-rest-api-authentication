@@ -9,8 +9,8 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
-    "firebase": "^8.2.1",
-    "next": "10.0.4",
+    "firebase": "^8.2.7",
+    "next": "10.0.7",
     "react": "17.0.1",
     "react-dom": "17.0.1"
   }

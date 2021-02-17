@@ -1,9 +1,10 @@
+
 server:
    port: 8090
 security:
    firebase-props:
       database-url: ${FIREBASE_DATABASE}
-      enable-strict-server-session: ${ENABLE_SERVER_SESSION}
+      enable-strict-server-session: ${ENABLE_STRICT_SERVER_SESSION}
       enable-check-session-revoked: false
       enable-logout-everywhere: false
       session-expiry-in-days: 5
@@ -43,6 +44,7 @@ security:
    - /favicon.ico
    - /session/login
    - /public/*
+   - /test/**
    exposed-headers:
    - X-Xsrf-Token
    valid-application-roles:
@@ -51,6 +53,9 @@ security:
    - ROLE_SELLER
    - ROLE_CUSTOMER
    super-admins: ${SUPER_ADMINS}
+   test:
+     login:
+       enabled: ${TEST_LOGIN_ENABLED}
 logging:
    level:
       root: WARN
