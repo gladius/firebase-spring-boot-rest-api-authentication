@@ -1,0 +1,7 @@
+{
+  "baseUrl": "https://demo.dev",
+  "requestTimeout": 6000,
+  "env": {
+    "api_url": "https://api.demo.dev"
+  }
+}

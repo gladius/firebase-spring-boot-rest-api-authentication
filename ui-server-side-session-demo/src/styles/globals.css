@@ -1,0 +1,100 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button {
+  border-radius: 5px;
+  border-width: 0px;
+  padding: 5px 10px;
+  font-weight: 500;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-google {
+  border: 1px solid #e5e5e5;
+  background-color: #ffffff;
+}
+
+.button-logout {
+  border: 1px solid #e5e5e5;
+  color: #ffffff;
+  background-color: black;
+}
+.button-test {
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  background-color: #ffffff;
+}
+
+.button-icon {
+  margin: 0px 10px;
+}
+
+.container {
+  min-height: 100vh;
+  padding: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.name {
+  text-transform: capitalize;
+  color: #0091ad;
+  font-size: 25px;
+}
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+}
+.profile-container {
+  display: flex;
+  flex-direction: row;
+  width: 400px;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid #e5e5e5;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+.title-card {
+  display: flex;
+  flex-direction: row;
+  width: 400px;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 50px;
+}
+.login-container {
+  display: flex;
+  flex-direction: row;
+  width: 400px;
+  justify-content: space-around;
+  align-items: center;
+}
+.test-login-container {
+  display: flex;
+  flex-direction: row;
+  margin: 20px 0px;
+}
