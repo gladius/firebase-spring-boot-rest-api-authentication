@@ -29,7 +29,7 @@ This **Spring Boot Starter** is perfect for such situations when you want to ext
 	}
 ```
 
-- UI useAuth hook also has utility properties like **_ `roles, hasRole, isSuper, isSeller `_** properties exposed accross the application to allow or restrict access to specific UI components
+- UI useAuth hook also has utility properties like **_ `roles, hasRole, isSuper, isSeller `_** properties exposed accross the application to allow or restrict access to specific UI components. Read this post at thepro.io for more detailed explanation on role management [Firebase and Spring Boot Based Role Management and Authorization](https://thepro.io/post/firebase-and-spring-boot-based-role-management-and-authorization-3D)
 
 ### End to End Test
 
@@ -46,8 +46,8 @@ The method I used to solve the problem of testing firebase social authentication
 
 ### UI Demo
 
-Nextjs application demonstrating Client side firebase session. [ui-client-side-session-demo](ui-client-side-session-demo/)
-Nextjs application demonstrating Server side firebase session. [ui-server-side-session-demo](ui-server-side-session-demo/)
+- Nextjs application demonstrating Client side firebase session. [ui-client-side-session-demo](ui-client-side-session-demo/)
+- Nextjs application demonstrating Server side firebase session. [ui-server-side-session-demo](ui-server-side-session-demo/)
 
 ### Screenshots
 
@@ -61,7 +61,7 @@ Nextjs application demonstrating Server side firebase session. [ui-server-side-s
 
 ![Image of UI Server Side Session](https://raw.githubusercontent.com/gladius/firebase-spring-boot-rest-api-authentication/master/ui-server-side-session-demo/screenshots/screenshot.png)
 
-#### Cypress End to End Tests Screencast
+#### Cypress End to End Tests Screencapture
 
 ![Image of End to End Tests ](https://raw.githubusercontent.com/gladius/firebase-spring-boot-rest-api-authentication/master/ui-server-side-session-demo/screenshots/cypress_auth_test.gif)
 
