@@ -22,7 +22,7 @@ const UserProvider = ({ children }) => {
 
   const setIndividualRoles = (role) => {
     console.log("setIndividualRoles == > ", role);
-    switch (role) {
+    switch (role.toUpperCase()) {
       case "ROLE_SUPER":
         setIsSuper(true);
         break;
