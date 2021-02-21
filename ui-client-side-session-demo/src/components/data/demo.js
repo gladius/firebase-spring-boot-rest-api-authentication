@@ -16,6 +16,7 @@ const backend = ({ url, label }) => {
       },
     })
       .then((res) => {
+        console.log("res.data ==> ", res.data);
         setData(res.data);
         setStatus(res.status);
       })

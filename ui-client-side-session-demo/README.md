@@ -13,7 +13,13 @@ NEXT_PUBLIC_APP_ID=REPLACE_WITH_APP_ID
 NEXT_PUBLIC_MIDDLEWARE_URL=REPLACE_WITH_SPRING_BOOT_URL
 ```
 
-First, run the development server:
+First, install the dependencies:
+
+```bash
+npm install
+```
+
+Second, run the development server:
 
 ```bash
 npm run dev
