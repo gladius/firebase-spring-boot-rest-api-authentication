@@ -9,7 +9,7 @@ const backend = ({ url, label }) => {
 
   useEffect(() => {
     axios({
-      url: "http://localhost:8090" + url,
+      url: process.env.NEXT_PUBLIC_MIDDLEWARE_URL + url,
       method: "GET",
       headers: {
         Authorization: "Bearer " + idToken,
@@ -20,19 +20,18 @@ const backend = ({ url, label }) => {
         setStatus(res.status);
       })
       .catch((error) => {
-        setData(error.response.data);
-        setStatus(error.response.status);
+        if (error.response) {
+          setData(error.response.data.message);
+          setStatus(error.response.data.code);
+        }
       });
   }, [idToken]);
-  console.log("data ==> ", data);
   return (
     <>
       {data && (
         <>
           <td className="data">
-            <div className="message">
-              {status == 200 ? data : <>{data.message}</>}
-            </div>
+            <div className="message">{data}</div>
           </td>
           <td>
             <span className="path">{url}</span>

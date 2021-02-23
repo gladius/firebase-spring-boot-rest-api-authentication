@@ -103,9 +103,28 @@ tr {
 .user-info {
   display: flex;
   flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+}
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+}
+.name {
+  font-weight: 700;
+  color: grey;
+  margin-right: 5px;
+  color: #7209b7;
+}
+.logout-section {
+  display: flex;
+  flex-direction: row-reverse;
+  margin: 10px 0px;
 }
 
-.avatar {
-  width: 50px;
-  height: 50px;
+.roles-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }

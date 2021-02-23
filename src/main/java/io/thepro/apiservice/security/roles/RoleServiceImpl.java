@@ -31,7 +31,7 @@ public class RoleServiceImpl implements RoleService {
 			user.getCustomClaims().forEach((k, v) -> claims.put(k, v));
 			if (securityProps.getValidApplicationRoles().contains(role)) {
 				if (!claims.containsKey(role)) {
-					claims.put(role.toLowerCase(), true);
+					claims.put(role, true);
 				}
 				firebaseAuth.setCustomUserClaims(uid, claims);
 			} else {
@@ -50,7 +50,7 @@ public class RoleServiceImpl implements RoleService {
 		try {
 			UserRecord user = firebaseAuth.getUser(uid);
 			Map<String, Object> claims = new HashMap<>();
-			user.getCustomClaims().forEach((k, v) -> claims.put(k, v));
+			user.getCustomClaims().forEach((k, v) -> claims.put(k, v));			
 			if (claims.containsKey(role)) {
 				claims.remove(role);
 			}

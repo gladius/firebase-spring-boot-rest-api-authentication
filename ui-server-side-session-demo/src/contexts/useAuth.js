@@ -46,7 +46,6 @@ export const AuthProvider = (props) => {
         !state.isAuthenticated &&
         !publicPages.includes(path)
       ) {
-        console.log(" useAuth useEffect redirecting ");
         Router.push("/");
       }
     }

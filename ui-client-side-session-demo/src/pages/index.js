@@ -1,9 +1,10 @@
 import { useAuth } from "contexts/useAuth";
 import Navbar from "components/navbar";
 import Demo from "components/data/demo";
+import RolesView from "components/rolemanager/rolemanager";
 
 const Index = () => {
-  const { loadingUser, roles, isSeller, isSuper } = useAuth();
+  const { loadingUser, user, isSeller, isSuper } = useAuth();
 
   return (
     <div className="container">
@@ -13,18 +14,11 @@ const Index = () => {
         <div>
           <Navbar />
           <div className="card">
-            {roles && (
-              <div>
-                <span className="label">User Roles</span>
-                <span colspan="3" height="50px">
-                  {roles &&
-                    roles.map((val, key) => (
-                      <span key={key} className="role">
-                        {val}
-                      </span>
-                    ))}
-                </span>
-              </div>
+            {user && (
+              <>
+                <RolesView />
+                <hr />
+              </>
             )}
             <table>
               <tbody>

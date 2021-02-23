@@ -3,18 +3,16 @@ import { useAuth } from "contexts/useAuth.js";
 
 const Navbar = () => {
   const { user, login, logout } = useAuth();
-  console.log("user ==> ", user);
-
   return (
     <div className="navbar">
       <h2>Spring Boot Firebase Authorization</h2>
       {user != null ? (
         <div className="user-nav-section">
           <div className="user-info">
-            <img className="avatar" src={user.photoURL} />
-            <div className="name">{user.displayName}</div>
+            <img className="avatar" src={user.picture} />
+            <div className="name">{user.name}</div>
           </div>
-          <div>
+          <div className="logout-section">
             <button
               type="button"
               className="button secondary"

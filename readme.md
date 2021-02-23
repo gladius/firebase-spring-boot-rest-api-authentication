@@ -57,6 +57,10 @@ The method I used to solve the problem of testing firebase social authentication
 | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
 | ![Image of UI Loggedout](https://raw.githubusercontent.com/gladius/firebase-spring-boot-rest-api-authentication/master/ui-client-side-session-demo/screenshots/loggedout.png) | ![Image of UI LoggedIn ](https://raw.githubusercontent.com/gladius/firebase-spring-boot-rest-api-authentication/master/ui-client-side-session-demo/screenshots/loggedin.png) |
 
+|                                                                                     Logged In Seller                                                                                      |     |
+| :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-: |
+| ![Image of UI LoggedIn Seller](https://raw.githubusercontent.com/gladius/firebase-spring-boot-rest-api-authentication/master/ui-client-side-session-demo/screenshots/loggedin_seller.png) |     |
+
 #### Server Side Session Screenshots
 
 ![Image of UI Server Side Session](https://raw.githubusercontent.com/gladius/firebase-spring-boot-rest-api-authentication/master/ui-server-side-session-demo/screenshots/screenshot.png)

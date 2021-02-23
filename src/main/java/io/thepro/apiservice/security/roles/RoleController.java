@@ -21,13 +21,13 @@ public class RoleController {
 	FirebaseAuth firebaseAuth;
 
 
-	@PutMapping("role/add")
+	@PutMapping("add")
 	@IsSuper
 	public void addRole(@RequestParam String uid, @RequestParam String role) throws Exception {
 		roleService.addRole(uid, role);
 	}
 
-	@DeleteMapping("role/remove")
+	@DeleteMapping("remove")
 	@IsSuper
 	public void removeRole(@RequestParam String uid, @RequestParam String role) {
 		roleService.removeRole(uid, role);
