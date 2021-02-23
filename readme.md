@@ -53,13 +53,10 @@ The method I used to solve the problem of testing firebase social authentication
 
 #### Client Side Session Screenshots
 
-|                                                                                  Logged out                                                                                   |                                                                                  Logged In                                                                                   |
-| :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| ![Image of UI Loggedout](https://raw.githubusercontent.com/gladius/firebase-spring-boot-rest-api-authentication/master/ui-client-side-session-demo/screenshots/loggedout.png) | ![Image of UI LoggedIn ](https://raw.githubusercontent.com/gladius/firebase-spring-boot-rest-api-authentication/master/ui-client-side-session-demo/screenshots/loggedin.png) |
-
-|                                                                                     Logged In Seller                                                                                      |     |
-| :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-: |
-| ![Image of UI LoggedIn Seller](https://raw.githubusercontent.com/gladius/firebase-spring-boot-rest-api-authentication/master/ui-client-side-session-demo/screenshots/loggedin_seller.png) |     |
+|                                                                                  Logged out                                                                                   |                                                                                         Logged In                                                                                         |
+| :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| ![Image of UI Loggedout](https://raw.githubusercontent.com/gladius/firebase-spring-boot-rest-api-authentication/master/ui-client-side-session-demo/screenshots/loggedout.png) |       ![Image of UI LoggedIn ](https://raw.githubusercontent.com/gladius/firebase-spring-boot-rest-api-authentication/master/ui-client-side-session-demo/screenshots/loggedin.png)        |
+|                                                                                                                                                                               | ![Image of UI Loggedin Seller](https://raw.githubusercontent.com/gladius/firebase-spring-boot-rest-api-authentication/master/ui-client-side-session-demo/screenshots/loggedin_seller.png) |
 
 #### Server Side Session Screenshots
 
