@@ -1,8 +1,15 @@
 import GoogleSVG from "./google.svg";
 import { useState } from "react";
 import { testLogin, backendLogin } from "./firebase.auth";
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import {
+  getAuth,
+  setPersistence,
+  inMemoryPersistence,
+  signInWithPopup,
+  GoogleAuthProvider,
+} from "firebase/auth";
 import { useAuth } from "contexts/useAuth";
+import firebase from "config/firebase.config";
 
 const LoginModal = ({}) => {
   const [loading, setLoading] = useState(null);
@@ -10,8 +17,9 @@ const LoginModal = ({}) => {
   const { refreshAuthContext } = useAuth();
   const authenticateUser = () => {
     setLoading("Authenticating");
-    signInWithPopup(getAuth(), new GoogleAuthProvider()).then(
-      async (result) => {
+    const auth = getAuth(firebase);
+    setPersistence(auth, inMemoryPersistence).then(() => {
+      signInWithPopup(auth, new GoogleAuthProvider()).then(async (result) => {
         if (result.user) {
           result.user.getIdToken().then((idToken) => {
             backendLogin(idToken, result.user).then((response) =>
@@ -19,8 +27,8 @@ const LoginModal = ({}) => {
             );
           });
         }
-      }
-    );
+      });
+    });
   };
   return (
     <div>
