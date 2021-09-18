@@ -1,6 +1,6 @@
+import { createContext, useContext, useEffect, useReducer } from "react";
 import Cookies from "js-cookie";
 import Router from "next/router";
-import { createContext, useContext, useEffect, useReducer } from "react";
 import publicPages from "components/auth/public-pages";
 import axios from "axios";
 

@@ -1,6 +1,11 @@
 import { useReducer, useEffect, createContext, useContext } from "react";
-import firebase from "config/firebase-config";
 import { initialState, authReducer, RESET_AUTH_STATE } from "./auth.reducer";
+import {
+  getAuth,
+  signInWithPopup,
+  GoogleAuthProvider,
+  signOut,
+} from "firebase/auth";
 
 export const UserContext = createContext();
 
@@ -8,7 +13,7 @@ const UserProvider = ({ children }) => {
   const [state, dispatch] = useReducer(authReducer, initialState);
 
   useEffect(() => {
-    const unsubscriber = firebase.auth().onAuthStateChanged(async (user) => {
+    const unsubscriber = getAuth().onAuthStateChanged(async (user) => {
       if (user) {
         resetAuth();
       } else {
@@ -29,23 +34,20 @@ const UserProvider = ({ children }) => {
     Object.keys(claims).filter((claim) => claim.includes("ROLE_"));
 
   // Login
-  const login = () =>
-    firebase.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider());
+  const login = () => signInWithPopup(getAuth(), new GoogleAuthProvider());
 
   // Logout
-  const logout = () => firebase.auth().signOut();
+  const logout = () => signOut(getAuth());
 
   const refreshToken = () => {
-    firebase
-      .auth()
+    getAuth()
       .currentUser.getIdToken(true)
       .then((idToken) => resetAuth(idToken))
       .catch((error) => console.error(error));
   };
 
   const resetAuth = () => {
-    firebase
-      .auth()
+    getAuth()
       .currentUser.getIdTokenResult()
       .then((idTokenResult) => {
         if (typeof idTokenResult.claims != undefined) {

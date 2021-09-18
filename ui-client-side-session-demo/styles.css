@@ -63,7 +63,7 @@ tr {
   cursor: pointer;
 }
 .primary {
-  background: #7209b7;
+  background: #06d6a0;
   color: #ffffff;
 }
 .secondary {
@@ -115,7 +115,7 @@ tr {
   font-weight: 700;
   color: grey;
   margin-right: 5px;
-  color: #7209b7;
+  color: #06d6a0;
 }
 .logout-section {
   display: flex;

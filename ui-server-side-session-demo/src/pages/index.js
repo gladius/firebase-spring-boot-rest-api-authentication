@@ -2,7 +2,7 @@ import Head from "next/head";
 import Login from "components/auth/login";
 import { useAuth } from "contexts/useAuth";
 
-export default function Home() {
+export default Home = () => {
   const { isAuthenticated, fullname, pic, logout } = useAuth();
   return (
     <div className="container">
@@ -42,4 +42,4 @@ export default function Home() {
       </main>
     </div>
   );
-}
+};

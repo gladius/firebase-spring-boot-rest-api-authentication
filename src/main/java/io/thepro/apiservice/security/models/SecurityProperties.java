@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 import lombok.Data;
 
 @Component
-@ConfigurationProperties("security")
+@ConfigurationProperties(prefix = "security")
 @Data
 public class SecurityProperties {
 

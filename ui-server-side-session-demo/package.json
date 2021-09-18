@@ -1,5 +1,5 @@
 {
-  "name": "stateset-backend-ui",
+  "name": "firebase-ui",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,14 +9,14 @@
     "it": " ./node_modules/.bin/cypress open"
   },
   "dependencies": {
-    "axios": "^0.21.1",
-    "firebase": "^8.2.7",
-    "js-cookie": "^2.2.1",
-    "next": "10.0.7",
-    "react": "17.0.1",
-    "react-dom": "17.0.1"
+    "axios": "^0.21.4",
+    "firebase": "^9.0.2",
+    "js-cookie": "^3.0.1",
+    "next": "^11.1.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   },
   "devDependencies": {
-    "cypress": "^6.5.0"
+    "cypress": "^8.4.1"
   }
 }

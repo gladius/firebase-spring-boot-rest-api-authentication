@@ -1,4 +1,5 @@
 import axios from "axios";
+import { getAuth, signInWithCustomToken } from "firebase/auth";
 import firebase from "config/firebase.config";
 
 export const backendLogin = async (idToken, user) => {
@@ -29,19 +30,17 @@ export const testLogin = async (testId) => {
     },
   })
     .then((res) => {
-      return firebase
-        .auth()
-        .signInWithCustomToken(res.data)
+      return signInWithCustomToken(getAuth(firebase), res.data)
         .then(async (resp) => {
           return await resp.user.getIdToken().then((idToken) => {
             return Promise.resolve(backendLogin(idToken));
           });
         })
-        .catch(function (error) {
-          return Promise.reject(false);
+        .catch((error) => {
+          return Promise.reject(error);
         });
     })
     .catch((error) => {
-      return Promise.reject(false);
+      return Promise.reject(error);
     });
 };

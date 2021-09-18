@@ -1,5 +1,4 @@
-import firebase from "firebase/app";
-import "firebase/auth";
+import { initializeApp } from "firebase/app";
 
 const config = {
   apiKey: process.env.NEXT_PUBLIC_API_KEY,
@@ -9,8 +8,6 @@ const config = {
   appId: process.env.NEXT_PUBLIC_APP_ID,
 };
 
-if (typeof window !== "undefined" && !firebase.apps.length) {
-  firebase.initializeApp(config);
-}
+const firebaseApp = initializeApp(config);
 
-export default firebase;
+export default firebaseApp;
