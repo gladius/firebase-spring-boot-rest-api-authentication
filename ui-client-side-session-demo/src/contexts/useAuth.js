@@ -6,6 +6,7 @@ import {
   GoogleAuthProvider,
   signOut,
 } from "firebase/auth";
+import firebaseApp from "config/firebase-config";
 
 export const UserContext = createContext();
 
@@ -13,18 +14,20 @@ const UserProvider = ({ children }) => {
   const [state, dispatch] = useReducer(authReducer, initialState);
 
   useEffect(() => {
-    const unsubscriber = getAuth().onAuthStateChanged(async (user) => {
-      if (user) {
-        resetAuth();
-      } else {
-        dispatch({
-          type: RESET_AUTH_STATE,
-          payload: {
-            loading: false,
-          },
-        });
+    const unsubscriber = getAuth(firebaseApp).onAuthStateChanged(
+      async (user) => {
+        if (user) {
+          resetAuth();
+        } else {
+          dispatch({
+            type: RESET_AUTH_STATE,
+            payload: {
+              loading: false,
+            },
+          });
+        }
       }
-    });
+    );
     return () => unsubscriber();
   }, []);
 
@@ -34,20 +37,21 @@ const UserProvider = ({ children }) => {
     Object.keys(claims).filter((claim) => claim.includes("ROLE_"));
 
   // Login
-  const login = () => signInWithPopup(getAuth(), new GoogleAuthProvider());
+  const login = () =>
+    signInWithPopup(getAuth(firebaseApp), new GoogleAuthProvider());
 
   // Logout
-  const logout = () => signOut(getAuth());
+  const logout = () => signOut(getAuth(firebaseApp));
 
   const refreshToken = () => {
-    getAuth()
+    getAuth(firebaseApp)
       .currentUser.getIdToken(true)
       .then((idToken) => resetAuth(idToken))
       .catch((error) => console.error(error));
   };
 
   const resetAuth = () => {
-    getAuth()
+    getAuth(firebaseApp)
       .currentUser.getIdTokenResult()
       .then((idTokenResult) => {
         if (typeof idTokenResult.claims != undefined) {

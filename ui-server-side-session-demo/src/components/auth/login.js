@@ -58,9 +58,7 @@ const LoginModal = ({}) => {
                     .then((resp) => {
                       refreshAuthContext();
                     })
-                    .catch((error) => {
-                      setLoading("Authentication Failed");
-                    })
+                    .catch((error) => setLoading("Authentication Failed"))
                 }
               >
                 Test Login
