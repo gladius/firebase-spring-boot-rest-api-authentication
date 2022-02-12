@@ -42,7 +42,7 @@ The method I used to solve the problem of testing firebase social authentication
 - [Firebase with Spring Boot for Kubernetes Deployment Configuration](https://thepro.io/post/firebase-with-spring-boot-kubernetes-deployment-configuration-RA)
 - [Local Domain Names with SSL for development applications ](https://thepro.io/post/local-domain-names-with-ssl-for-local-development-applications-LG)
 - [Firebase Server Side Session Authentication with Next.js and Spring Boot](https://thepro.io/post/firebase-server-side-session-authentication-with-next.js-and-spring-boot-py)
-- [End to End Test Firebase Authentication with Cypress, Spring Boot & Nextjs](https://thepro.io/post/end-to-end-test-firebase-authentication-with-cypress,-spring-boot-&-nextjs-Mg)
+- [End to End Test Firebase Authentication with Cypress, Spring Boot & Nextjs](https://thepro.io/post/end-to-end-test-firebase-authentication-with-cypress-spring-boot-nextjs-Mg)
 
 ### UI Demo
 
