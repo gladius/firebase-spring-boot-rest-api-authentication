@@ -33,7 +33,7 @@ This **Spring Boot Starter** is perfect for such situations when you want to ext
 
 ### End to End Test
 
-The method I used to solve the problem of testing firebase social authentication is opinionated and may not be suitable to everyone. Simply put, we create a toggleable Test User functionaly that authenticates specific set of static test users through firebase custom token. This solves a lot of issues associated with testing a third party backed authentication flow. Read this post at thepro.io for more in detail explanation [End to End Test Firebase Authentication with Cypress, Spring Boot & Nextjs](https://thepro.io/post/end-to-end-test-firebase-authentication-with-cypress,-spring-boot-&-nextjs-Mg)
+The method I used to solve the problem of testing firebase social authentication is opinionated and may not be suitable to everyone. Simply put, we create a toggleable Test User functionaly that authenticates specific set of static test users through firebase custom token. This solves a lot of issues associated with testing a third party backed authentication flow. Read this post at thepro.io for more in detail explanation [End to End Test Firebase Authentication with Cypress, Spring Boot & Nextjs](https://thepro.io/post/end-to-end-test-firebase-authentication-with-cypress-spring-boot-nextjs-Mg)
 
 ## Related Tutorials :
 
